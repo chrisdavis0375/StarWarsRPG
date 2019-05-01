@@ -43,6 +43,26 @@ $(document).ready(function() {
     var kills = 0;
 
 
+//Function for generating a character
+function generateCharacter(character, section) {
+    var charDiv = $("<div class='character' data-name='" + character.name + "'>");
+    var charName = $("<div class='character-name'>").text(character.name);
+    var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
+    var charHealth = $("<div class='character-health'>").text(character.health);
+    charDiv.append(charName).append(charImage).append(charHealth);
+    $(section).append(charDiv);
 
-    
+}
+
+
+//Function to start the game
+function start() {
+
+    for(var key in character) {
+        generateCharacter(characters[key], "#characters-section");
+    }
+}
+
+start();
+
 })
